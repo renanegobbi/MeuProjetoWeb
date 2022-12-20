@@ -34,7 +34,7 @@ Este é um projeto Web desenvolvido com ASP.NET Core 5.0 para consultar/criar/at
 
 # Demonstração
 
-A aplicação é composta de 2 telas.   
+A aplicação é composta de duas telas.   
 
 1 - A tela abaixo, além de cadastrar/alterar/excluir um fornecedor, permite filtrar os fornecedores baseados nos seguintes parâmetros de procura: 
 
