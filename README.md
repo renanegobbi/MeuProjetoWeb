@@ -47,7 +47,7 @@ Cnpj | CNPJ do fornecedor
 Status | Status de ativação do fornecedor
 
 <p align="center">
-  <img src="https://github.com/renanegobbi/_MeuProjetoWeb/blob/main/github/PrintTelaFornecedor.png">
+  <img src="https://github.com/renanegobbi/MeuProjetoWeb/blob/main/github/PrintTelaFornecedor.png">
 </p>
 
 2 - A tela abaixo, além de cadastrar/alterar/excluir um produto, permite filtrar os produtos baseados nos seguintes parâmetros de procura: 
@@ -62,7 +62,7 @@ Validade | Data de validade do produto
 Status | Status de ativação do produto
 
 <p align="center">
-  <img src="https://github.com/renanegobbi/_MeuProjetoWeb/blob/main/github/PrintTelaProduto.png">
+  <img src="https://github.com/renanegobbi/MeuProjetoWeb/blob/main/github/PrintTelaProduto.png">
 </p>
 
 # Licença
