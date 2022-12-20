@@ -1,0 +1,67 @@
+﻿@using meuprojeto_web.Helpers
+@using meuprojeto_web.Extensions
+@model meuprojeto_web.Comandos.Saida.FornecedorSaida
+
+@{
+    var cadastro = Model == null || Model.Nome == null;
+    var valueStatus =  Model?.Ativo.HasValue == true ? "S" : "N";
+    var status = Model?.Ativo == true ? "Ativo" : "Inativo";
+}
+
+<div class="modal-block modal-block-primary app-modal-md modal-header-color">
+    <section class="panel">
+        <header class="panel-heading" style="background-color: #035785;">
+            <h2 class="panel-title">@(cadastro ? "Cadastrar" : "Alterar")</h2>
+        </header>
+        <div class="panel-body">
+            <input type="hidden" id="iIdFornecedor" value="@Model?.Id" />
+            <form id="form-manter-fornecedor" class="form-group" style="margin-bottom:0;">
+                <div class="row">
+                    <div class="col-sm-8 form-group">
+                        <label class="control-label">Nome</label> @CustomHtmlHelper.IconeCampoObrigatorio("iNomeFornecedor")
+                        <input type="text" class="form-control" id="iNomeFornecedor" name="iNomeFornecedor" value="@Model?.Nome" />
+                    </div>
+                    <div class="col-sm-4 form-group">
+                        <label class="control-label">CNPJ</label> @CustomHtmlHelper.IconeCampoObrigatorio("iCnpjFornecedor")
+                        <input type="text" class="form-control" id="iCnpjFornecedor" name="iCnpjFornecedor" value="@Model?.Cnpj" @(Model != null ? "disabled" : string.Empty) />
+                    </div>
+                </div>
+                @if(cadastro){
+                <div class="row">
+                    <div class="col-sm-12 form-group">
+                        <label class="control-label">Descrição</label> @CustomHtmlHelper.IconeCampoObrigatorio("iDescricaoFornecedor")
+                        <input id="iDescricaoFornecedor" name="iDescricaoFornecedor" class="form-control" value="@Model?.Descricao" />
+                    </div>
+                </div>
+                }else{
+                <div class="row">
+                    <div class="col-sm-8 form-group">
+                        <label class="control-label">Descrição</label> @CustomHtmlHelper.IconeCampoObrigatorio("iDescricaoFornecedor")
+                        <input id="iDescricaoFornecedor" name="iDescricaoFornecedor" class="form-control" value="@Model?.Descricao" />
+                    </div>
+                    <div class="col-sm-4 form-group">
+                        <label class="control-label">Status</label> 
+                        <select id="sStatus" name="sStatus" class="form-control" style="width:100%;">
+                            <option value="@if(!cadastro){@valueStatus}" selected>@if(!cadastro){@status}</option>
+                            <option value="S" value-option="True" value-property="@Model?.Ativo.ToString()">Ativo</option>
+                            <option value="N" value-option="False" value-property="@Model?.Ativo.ToString()">Inativo</option>
+                        </select>
+                    </div>
+                </div>
+                }
+            </form>
+        </div>
+        <footer class="panel-footer">
+            <div class="row">
+                <div class="col-sm-12 text-right">
+                    <button class="btn btn-sm btn-default btn-fechar">
+                        <i class="fa fa-times mr-xs"></i> Fechar
+                    </button>
+                    <button class="btn btn-sm btn-primary" id="btn-salvar">
+                        <i class="fa fa-save mr-xs"></i> Salvar
+                    </button>
+                </div>
+            </div>
+        </footer>
+    </section>
+</div>

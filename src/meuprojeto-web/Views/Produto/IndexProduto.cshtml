@@ -1,0 +1,142 @@
+﻿@using meuprojeto_web.Extensions
+
+@{
+    ViewData["Title"] = "Produto";
+}
+
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+@section LibJavascript
+{
+<script src="~/lib/moment.js/moment.js"></script>
+<script src="~/lib/moment.js/locale/pt-br.js"></script>
+<script src="~/lib/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+<script src="~/lib/bootstrap-datepicker/locales/bootstrap-datepicker.pt-BR.min.js"></script>
+}
+
+@section Javascript
+{
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.11.3/datatables.min.js"></script>
+<script src="~/js/Views/Produto/produto-manter.js"></script>
+}
+
+<div class="content-wrapper">
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="ml-2">Produto</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="content">
+        <div class="container-fluid">
+            <section>
+                <div>
+                    <div class="container-fluid">
+                        <div class="card mb-3">
+                            <div class="card-header" id="iCardHeader">
+                                FILTRO
+                            </div>
+                            <div class="row pl-3 pr-3 pb-0 pt-3">
+                                <div class="col-sm-12 col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">ID</label>
+                                        <input type="text" class="form-control somenteNumero" placeholder="" id="iProcurarId">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Fornecedor</label>
+                                        <input type="text" class="form-control somenteNumero" placeholder="" id="iProcurarFornecedor">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Descrição</label>
+                                        <input type="text" class="form-control" placeholder="" id="iProcurarDescricao">
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="row pl-3 pr-3 pb-3 pt-0">
+                                <div class="col-sm-12 col-md-4">
+                                    <div class="form-group datapicker" style="z-index: 19001;">
+                                        <label class="control-label">Fabricação</label>
+                                        <div class="input-group flex-nowrap date" data-provide="datepicker">
+                                            <input type="text" class="form-control" placeholder="" id="iProcurarFabricacao">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="addon-wrapping"><i class="nav-icon fas fa-calendar"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-4">
+                                    <div class="form-group datapicker" style="z-index: 19001;">
+                                        <label class="control-label">Validade</label>
+                                        <div class="input-group flex-nowrap date" data-provide="datepicker">
+                                            <input type="text" class="form-control" placeholder="" id="iProcurarValidade">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="addon-wrapping"><i class="nav-icon fas fa-calendar"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label">Status</label>
+                                        <select id="sProcurarStatus" name="sProcurarStatus" class="form-control" style="width:100%;">
+                                            <option value="" selected></option>
+                                            <option value="S" condition=false>Ativo</option>
+                                            <option value="N" value-option="S" value-property="@Model?.Ativo.ToString()">Inativo</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="@*panel-footer*@ mb-3 ml-3" style="border-radius: 0;">
+                                <button type="submit" class="btn btn-sm  btn-primary" id="btn-filtrar">
+                                    <i class="fa fa-search mr-xs"></i>  Filtrar
+                                </button>
+                                <button type="submit" class="btn btn-sm btn-success" id="btn-cadastrar">
+                                    <i class="fa fa-plus mr-xs"></i>  Cadastrar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="col-xs-12">
+                            <div id="div-grid">
+                                <div class="card-header">
+                                    <h3 class="card-title titulo-bloco legenda-tabela">Resultado da busca por produtos</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="content-box content-box-tabela">
+                                        <table class="tabela-padrao tabela-padrao-borda table table-bordered table-striped" id="tblProduto" width="100%">
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-center col-sm-12 col-md-1">Id</th>
+                                                    <th class="text-center col-sm-12 col-md-1">Fornecedor</th>
+                                                    <th class="text-center col-sm-12 col-md-7">Descrição</th>
+                                                    <th class="text-center col-sm-12 col-md-1">Fabricação</th>
+                                                    <th class="text-center col-sm-12 col-md-1">Validade</th>
+                                                    <th class="text-center col-sm-12 col-md-1">Status</th>
+                                                    <th class="text-center" style="width:1px;"></th>
+                                                    <th class="text-center" style="width:1px;"></th>
+                                                </tr>
+                                            </thead>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+</div>
+
+

@@ -1,0 +1,123 @@
+﻿<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>@ViewData["Title"] - MinhaWeb</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.11.3/datatables.min.css" />
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/fonts/fontawesome/css/all.min.css" type="text/css" rel="stylesheet">
+    <link href="~/css/responsive.css" rel="stylesheet" />
+    <link href="~/css/glyphicon.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap-datepicker/css/bootstrap-datepicker.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/fonts/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="~/css/Dashboard/adminlte.min.css">
+    <link rel="stylesheet" href="~/css/Dashboard/OverlayScrollbars.min.css">
+    <link href="~/lib/select2/css/select2.min.css" rel="stylesheet" />
+    <link href="~/css/site.css" />
+    <link href="~/lib/jquery-confirm/jquery-confirm.min.css" rel="stylesheet" />
+    <link media="screen" rel="stylesheet" href="https://cdn.jsdelivr.net/sweetalert2/6.3.8/sweetalert2.min.css" />
+    @RenderSection("LibCss", required: false)
+    <link rel="stylesheet" href="~/css/app.css" />
+    <link rel="stylesheet" href="~/css/app-modal.css" />
+    @RenderSection("Css", required: false)
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+    <div style="min-height: 625px;">
+        <div class="wrapper">
+
+            <!-- Navbar -->
+            <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+                <!-- Left navbar links -->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                    </li>
+                    <li class="nav-item d-none d-sm-inline-block">
+                        <span class="nav-link">Sistema de gestão</span>
+                    </li>
+                </ul>
+
+                <!-- Right navbar links -->
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <div class="col-lg-9 col-sm-7 col-8 order-2 order-lg-3">
+                            <div class="d-flex justify-content-end">
+                                <div class="col-lg-4">
+                                    <div class="d-flex justify-content-end">
+                                        @*<partial name="_LoginPartial" />*@
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+            <!-- /.navbar -->
+
+            <!-- Main Sidebar Container -->
+            <aside class="main-sidebar sidebar-dark-primary elevation-4">
+                <!-- Brand Logo -->
+                <a href="" class="brand-link">
+                    <span class="brand-text font-weight-light ml-4">MinhaWeb</span>
+                </a>
+                <!-- Sidebar -->
+                <div class="sidebar">
+                    <!-- Sidebar Menu -->
+                    <nav class="mt-2">
+                        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                            <li class="nav-item">
+                                <a asp-controller="fornecedor" asp-action="Index"  class="nav-link">
+                                    <i class="nav-icon fas fa-user"></i>
+                                    <p>
+                                        Fornecedor
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item" supress-by-claim-name="Administrador" supress-by-claim-value="Todas">
+                                <a asp-controller="produto" asp-action="Index" class="nav-link">
+                                    <i class="nav-icon fa fa-cube"></i>
+                                    <p>
+                                        Produto
+                                    </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!-- /.sidebar-menu -->
+                </div>
+                <!-- /.sidebar -->
+            </aside>
+
+            @RenderBody()
+
+            <aside class="control-sidebar control-sidebar-dark"></aside>
+        </div>
+    </div>
+    <partial name="_Rodape" />
+    <script src="~/lib/jquery/dist/jquery.min.js" type="text/javascript"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/js/Views/Dashboard/jquery.min.js"></script>
+    <script src="~/js/Views/Dashboard/jquery-ui.min.js"></script>
+    <script src="~/js/Views/Dashboard/adminlte.js"></script>
+    <script src="~/lib/select2/js/select2.full.min.js"></script>
+    <script src="~/lib/jquery.inputmask.min.js"></script>
+    <script src="~/lib/jquery-confirm/jquery-confirm.min.js"></script>
+    <script src="~/lib/jquery.blockUI/jquery.blockUI.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/additional-methods.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/sweetalert2/6.3.8/sweetalert2.min.js"></script>
+    @RenderSection("LibJavascript", false)
+    <script src="~/js/app.js"></script>
+    <script src="~/js/app-modal.js"></script>
+    <script src="~/js/app-feedback.js"></script>
+    <script type="text/javascript">
+        </script>
+        <script type="text/javascript">
+            var _appPath = '@Url.Content("~/")';
+        </script>
+    @RenderSection("Javascript", false)
+</body>
+</html>
+

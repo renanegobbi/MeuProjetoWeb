@@ -1,0 +1,39 @@
+﻿{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:5100",
+      "sslPort": 0
+    }
+  },
+  "profiles": {
+    "Desenvolvimento": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "fornecedor",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Desenvolvimento"
+      },
+      "applicationUrl": "http://localhost:5100"
+    },
+    "Homologacao": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "fornecedor",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Homologacao"
+      },
+      "applicationUrl": "http://localhost:5100"
+    },
+    "Producao": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "fornecedor",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Producao"
+      },
+      "applicationUrl": "http://localhost:5100"
+    }
+  }
+}
