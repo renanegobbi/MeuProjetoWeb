@@ -30,7 +30,7 @@ O projeto foi desenvolvido com as seguintes tecnologias e ferramentas:
 
 # Sobre o projeto
 
-Este é um projeto Web desenvolvido com ASP.NET Core 5.0 para consultar/criar/atualizar/excluir os dados disponibilizados por uma documentação de API, por Swagger, que realiza a gestão de fornecedores e produtos..
+Este é um projeto Web desenvolvido com ASP.NET Core 5.0 para consultar/criar/atualizar/excluir os dados disponibilizados por uma documentação de API, por Swagger, que realiza a gestão de fornecedores e produtos.
 
 # Demonstração
 
